@@ -1,0 +1,10 @@
+Dear {{agentName}},
+
+Your order has been received. 
+
+Please take note that your investment will be processed within the next 3 business days given that supporting
+documents are in order.
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

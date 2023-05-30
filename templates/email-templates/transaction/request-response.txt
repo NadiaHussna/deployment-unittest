@@ -1,0 +1,9 @@
+Dear Compliance, 
+
+Request {{eventType}} for Transaction Number {{orderNo}}{{transactionRef}} was {{action}}.
+{{#if reason}}Reason: {{reason}}{{/if}}
+{{#if targetDate}}<p>Due date has been extended to <strong>{{targetDate}}</strong>.</p>{{/if}}
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

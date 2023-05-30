@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>{{subject}}</title>
+  </head>
+  <body style="font-family: trebuchet ms, sans-serif; color: #333333; font-size: 16px; font-weight: 400; margin: 0; padding: 0;">
+    <div style="width: 100%;">
+      <table style="border-collapse: collapse; width: 100%; max-width: 780px; margin: auto">
+        <!-- START HEADER -->
+        <tr>
+          <td style="border-bottom: 1px solid #dddddd; padding: 30px 8px 30px 8px">
+            <img style="height: 3.7em" src="https://omni-icons.s3-ap-southeast-1.amazonaws.com/kenanga.jpg">
+          </td>
+        </tr>
+        <!-- END HEADER -->
+        <!-- START CONTENT -->
+        <tr>
+          <td style="border: none; padding: 30px 8px 5vh 8px; word-wrap: break-word">
+            <p>Dear <strong>Compliance</strong>,</p>
+            <p>Request {{eventType}} for Transaction Number <strong>{{orderNo}}{{transactionRef}}</strong> was {{action}}.</p>
+            {{#if reason}}<p><strong>Reason:</strong> {{reason}}</p>{{/if}}
+            {{#if targetDate}}<p>Due date has been extended to <strong>{{targetDate}}</strong>.</p>{{/if}}
+            <br>
+            <br>
+            <p style="font-family: 'Nunito-Sans', sans-serif; font-size: 16px; font-weight: 500; margin: 0; margin-bottom: 15px;">Best regards,</p>
+            <p style="font-family: 'Nunito-Sans', sans-serif; font-size: 16px; font-weight: 500; margin: 0; margin-bottom: 15px;"><b>Kenanga Investors Berhad</b></p>
+            <p style="font-family: 'Nunito-Sans', sans-serif; font-size: 12px; font-weight: 500; margin: 0; margin-bottom: 15px; font-style: italic;">(This is an automated email, please do not reply to this email)</p>
+          </td>
+        </tr>
+        <!-- END CONTENT -->
+      </table>
+    </div>
+    <!-- START FOOTER -->
+    <div class="footer" style="clear: both; text-align: center; width: 100%; background-color: #c61230; height: 96px;">
+      <table cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; width: 100%;">
+        <tr>
+          <td style="vertical-align: top; padding-bottom: 10px; padding-top: 10px;"></td>
+        </tr>
+        <tr>
+          <td style="vertical-align: top;"></td>
+          <td style="vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-weight: bold; white-space: nowrap;">
+            <p style="font-family: trebuchet ms, sans-serif; margin: 0; font-size: 12px; color: #fff; font-weight: 600px; margin-bottom: 12px;">Kenanga Investors Berhad 199501024358 (353563-P)</p>
+            <p style="font-family: trebuchet ms, sans-serif; margin: 0; font-size: 12px; color: #fff; font-weight: 600px; margin-bottom: 12px; line-height: 1px; margin-right: 190px;">All rights reserved.</p>
+          </td>
+          <td style="vertical-align: top; color: #fff;"></td>
+        </tr>
+      </table>
+    </div>
+    <!-- END FOOTER -->
+  </body>
+</html>

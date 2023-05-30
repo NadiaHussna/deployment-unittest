@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body style="width: 50.1875rem; margin: 0px; font-family: Nunito Sans">
+    <div id = "check">
+    <div style="margin: 0px 1.5rem">
+      <!-- welcome -->
+      <div  style="font-size: 1.5rem; font-weight: bold; margin: 1rem 0px; display: flex;flex-direction: row;">
+      </div>
+      <div style="font-size: 1rem; font-weight: bold; margin-bottom: 1rem; margin-top: 2.625rem">
+        Bank Details
+      </div>
+      <div
+        id="section 3a"
+      ></div>
+      <script>
+        // section 3
+        const section3 = {{{json section}}}
+        const checkk = document.getElementById("check")
+          if(section3.bank == false) {
+            checkk.style.display = "none"
+          } else {
+                checkk.style.display = 'flex';
+                let temp = 0
+
+                for(i=0;i < (section3.bankDetails).length;i++){
+                  var img = new Image();
+                  img.src = "https://omnitesting.s3-ap-southeast-1.amazonaws.com/img/Bank.jpg"
+                  img.style.marginRight = "12px";
+                  img.style.width = "16px"
+                  img.style.height = "16px"
+                  const icon = document.createElement("DIV")
+                  icon.style.fontSize = "10px"
+                  icon.style.display = "grid"
+                  icon.style.gridTemplateColumns ="2fr 2fr 2fr"
+                  const image = document.createElement('div')
+                  image.style.display = "flex"
+                  image.appendChild(img)
+                  const text = document.createElement('div')
+                  text.style.fontWeight = "bold"
+                  text.innerHTML = `${section3.bankDetails[temp].bank} ${temp+1}`
+                  image.appendChild(text)
+                  icon.appendChild(image)
+                  for(let i=0;i<2;i++){
+                    const space = document.createElement('div')
+                    const space1 =document.createElement('DIV')
+                    space1.innerHTML = "space2"
+                    space.innerHTML = "space"
+                    space.style.opacity='0'
+                    space1.style.opacity='0' 
+                    icon.appendChild(space)
+                    icon.appendChild(space1)
+                }
+                  const tempDiv = document.createElement('DIV')
+                  tempDiv.setAttribute("id",temp.toString())
+                  tempDiv.style.display = 'grid'
+                  tempDiv.style.gridTemplateColumns = '2fr 2fr 2fr'
+                  tempDiv.style.columnGap = '2rem'
+                  tempDiv.style.rowGap = "1rem"
+                  tempDiv.style.marginBottom = "1rem"
+                  document.getElementById("section 3a").appendChild(icon)
+                  for (let index = 0; index < section3.bankDetails[temp].question.length; index++) {
+                  const cont = document.createElement("DIV")
+                  const ques = document.createElement("DIV")
+                  const anw = document.createElement("DIV")
+                  
+                  cont.style.width = "10rem"
+                  
+                  ques.style.fontSize = "10px"
+                  ques.style.fontWeight = "bold"
+                  ques.style.color = "#333333"
+                  ques.innerHTML = section3.bankDetails[temp].question[index]
+                  
+                  anw.style.fontSize = "12px"
+                  anw.style.fontWeight = "bold"
+                  anw.innerHTML = section3.bankDetails[temp].answer[index]
+                  
+                  cont.appendChild(ques)
+                  cont.appendChild(anw)
+                  tempDiv.appendChild(cont)
+                }
+                document.getElementById("section 3a").appendChild(tempDiv)
+                temp+=1
+                }
+          }
+      </script>
+    </div></div>
+    <div style="width: 100%; border-bottom: 1px dashed #eaebee;"></div>
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Employment Information</div>
+      <div
+        id="section 1"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 1
+        const section1 = {{{json section}}}
+        for (let index = 0; index < section1.employmentDetails.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section1.employmentDetails.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section1.employmentDetails.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 1").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; border-bottom: 1px dashed #eaebee;"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold"></div>
+      <div
+        id="section 2"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section2 = {{{json section2}}}
+        for (let index = 0; index < section2.employmentAddress.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section2.employmentAddress.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section2.employmentAddress.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 2").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">FATCA Clarification</div>
+      <div
+        id="section 7"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section7 = {{{json section2}}}
+        for (let index = 0; index < section3.fatcaDetails.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section7.fatcaDetails.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section7.fatcaDetails.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 7").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 1rem; font-weight: bold">CRS Declaration</div>
+      <div
+        id="section 4"
+      ></div>
+      <script>
+        // section 2
+          const investment = {{{json section}}}
+          let tempss = 0
+          for(i=0;i < (investment.crsDetails).length;i++){
+            const tempDivs = document.createElement('DIV')
+            tempDivs.setAttribute("id",tempss.toString())
+            tempDivs.style.display = 'grid'
+            tempDivs.style.gridTemplateColumns = '2fr 2fr 2fr'
+            tempDivs.style.columnGap = '2rem'
+            tempDivs.style.rowGap = "1rem"
+            tempDivs.style.marginBottom = "1rem"
+            for (let index = 0; index < investment.crsDetails[tempss].question.length; index++) {
+            const cont = document.createElement("DIV")
+            const ques = document.createElement("DIV")
+            const anw = document.createElement("DIV")
+
+            cont.style.width = "10rem"
+
+            ques.style.fontSize = "10px"
+            ques.style.fontWeight = "bold"
+            ques.style.color = "#333333"
+            ques.innerHTML = investment.crsDetails[tempss].question[index]
+
+            anw.style.fontSize = "12px"
+            anw.style.fontWeight = "bold"
+            anw.innerHTML = investment.crsDetails[tempss].answer[index]
+
+            cont.appendChild(ques)
+            cont.appendChild(anw)
+            tempDivs.appendChild(cont)
+          }
+          document.getElementById("section 4").appendChild(tempDivs)
+          tempss+=1
+      }
+      </script>
+    </div>
+    <div style="width: 100%; border-bottom: 1px dashed #eaebee;"></div>
+    <div style="margin: 0px 1.5rem">
+    <div style="font-size: 14px; font-weight: bold; margin-bottom: 1rem; margin-top: 2.625rem">
+      Signatures
+    </div>
+    <div style="display: flex">
+      <div style="margin-right: 6rem">
+        <div style="font-size: 8px;line-height: 7px">Principal Holder's Signature</div>
+        <div
+            style="
+              font-size: 12px;
+              font-weight: 600;
+              height: 4rem;
+              width: 15.5rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 1rem;
+              border-bottom: 1px dashed;
+            "
+            id="signatureImg"
+          >
+          </div>
+          <div style="font-size: 10px; margin-bottom: 0.5rem">
+            Name: <span id = "principal" style="font-weight: bold"> </span>
+          </div>
+          <div style="font-size: 10px">Date: <span id = "date1" style="font-weight: bold"></span></div>
+      </div></div>
+      <script>
+        const section8 = {{{json section}}}
+        document.getElementById("principal").innerHTML=section8.signature.principal
+        document.getElementById("date1").innerHTML=section8.signature.date
+        const imgDiv= document.createElement('DIV')
+        var img = new Image();
+          img.src = section8.signature.path1
+          img.style.maxWidth = "120px"
+          img.style.height = "32px"
+          imgDiv.appendChild(img)
+          document.getElementById('signatureImg').appendChild(imgDiv)
+      </script>
+    </div>
+  </body>
+</html>

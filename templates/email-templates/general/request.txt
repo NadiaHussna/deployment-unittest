@@ -1,0 +1,7 @@
+Dear Compliance,
+
+A new request for {{eventType}} by {{requestorName}} requires your review.
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

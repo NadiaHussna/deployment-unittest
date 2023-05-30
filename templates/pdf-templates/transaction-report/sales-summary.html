@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+      .header {
+                padding: 0px;
+                border-spacing: 0;
+                display: flex;
+                max-width:502px;
+            }
+            .row {
+                padding: 0px;
+                border-spacing: 0;
+                display: flex;
+                border: 0.5px solid #f4f6f4;
+            }
+            .table_header {
+                background: #333333;
+                color: #ffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
+                font-size: 6px;
+                width: 72px;
+                padding: 8px;
+                line-height: 1rem;
+                /* box-shadow: inset -1px 0px 0px #000000; */
+                box-shadow: inset 0.5px 0.5px #000000;
+                letter-spacing: -0.33px;
+                text-align: center;
+            }
+            .table_data {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 400;
+                padding: 8px;
+                width: 72px;
+                font-size: 6px;
+                line-height: 1rem;
+                text-transform: capitalize;
+                letter-spacing: -0.33px;
+                box-shadow: inset 0.5px 0.5px #f4f6f4;
+            }
+            .total{
+              padding: 0px;
+                border-spacing: 0;
+                display: flex;
+                border: 0.5px solid #f4f6f4;
+                text-align: right;
+            }
+    </style>
+  </head>
+  <body style="width: 50.1875rem; margin: 0px; font-family: Nunito Sans">
+    <div style="margin: 0px 1.5rem">
+      <!-- welcome -->
+      <div  style="font-size: 1rem; font-weight: bold; margin: 1rem 0px; display: flex;flex-direction: row;">
+        <div>Transaction No: &nbsp;</div>
+        <div id="client"></div>
+      </div>
+      <!-- Transaction Summary -->
+      <div style="font-size: 14px; font-weight: bold; margin-bottom: 1rem">Sales Summary </div>
+      <div
+        id="section 1"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 1
+        const section1 = {{{json section}}}
+        document.getElementById("client").innerHTML=section1.transactionName
+        for (let index = 0; index < section1.salesSummary.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section1.salesSummary.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section1.salesSummary.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 1").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Personal Details</div>
+      <div
+        id="section 2"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section2 = {{{json section2}}}
+        for (let index = 0; index < section2.salesAccountSummary.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section2.salesAccountSummary.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          const valueAnswer = section2.salesAccountSummary.answer[index]
+          if (valueAnswer === 'AMP 2 Ei') anw.innerHTML = `AMP 2 E<i>i</i>`
+          else anw.innerHTML = valueAnswer
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 2").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Investment Table -->
+    <div style="margin: 0px 1.5rem">
+      <div class="header">
+        <div class="table_header" style="border-left: none; width: 32px">No.</div>
+        <div class="table_header"style="width: 96px">UTMC Name</div>
+        <div class="table_header" style="width: 144px">Fund Name</div>
+        <div class="table_header" style="width: 64px">Fund Currency</div>
+        <div class="table_header">Investment Amount</div>
+        <div class="table_header">Sales Charge (%)</div>
+    </div>
+      <div id = 'invetsments-table' style="width: 100%; max-width: 502px;"></div>
+      <div style="max-width:430px">Total investment
+      <div id='total-investment' ></div>
+      </div>
+      <script>
+          const section15 = {{{json section}}}
+          var table = document.getElementById('invetsments-table');
+          section15.paymentTable.map((item, index) => {
+              var row = document.createElement('div');
+              row.className = 'row';
+              
+              const tempDiv = document.createElement('div')
+              tempDiv.style= 'display:flex;width:100%';
+              for (let [key] of Object.entries(item)){
+                  
+                  var tableData = document.createElement('div');
+                  tableData.className = 'table_data';
+                  switch(key){
+                      case 'serialNumber': var data = document.createTextNode(`${item[key]}`)
+                                 tableData.style="width:32px;";
+                                 tableData.appendChild(data);
+                                 tempDiv.appendChild(tableData);
+                                 row.appendChild(tempDiv)
+                                 break;
+                      case 'fundName':
+                                 var data = document.createTextNode(`${item[key]}`)
+                                 tableData.style="width:144px;";
+                                 tableData.appendChild(data);
+                                 if (item.withItalic) {
+                                  tableData.innerHTML += '<i style="text-transform: lowercase">i</i>'
+                                  // var element = document.createElement("I");
+                                  // var letter = document.createTextNode("i");
+                                  // tableData.appendChild(element);
+                                 }
+                                 tempDiv.appendChild(tableData);
+                                 row.appendChild(tempDiv)
+                                 break;
+                       case 'utmc':var data = document.createTextNode(`${item[key]}`)
+                       tableData.style="width:96px;";
+                       tableData.appendChild(data);
+                       tempDiv.appendChild(tableData);
+                       row.appendChild(tempDiv)
+                       break;
+                       case 'currency':var data = document.createTextNode(`${item[key]}`)
+                       tableData.style="width:64px;";
+                       tableData.appendChild(data);
+                       tempDiv.appendChild(tableData);
+                       row.appendChild(tempDiv)
+                       break;           
+                      default: var data = document.createTextNode(`${item[key]}`)
+                          if(key !== 'withItalic'){
+                            tableData.appendChild(data);
+                            tempDiv.appendChild(tableData)
+                            row.appendChild(tempDiv)
+                          }
+                          break;
+                  }
+                  
+              }
+              table.appendChild(row)                                
+          });
+          var totalInvestment = document.getElementById('total-investment')
+          totalInvestment.className = 'total'
+          section15.totalInvestment.map((item,index)=>{
+            var element = document.createElement('div')
+            element.style ="display:flex;";
+            for(let [key] of Object.entries(item)){
+              var flexData= document.createElement('div');
+              switch(key){
+                case 'totalInvestment': var data = document.createTextNode(`${item[key]}`)
+                flexData.style="font-weight:bold;";
+                flexData.appendChild(data);
+                           element.appendChild(flexData);
+                           break;
+                default: var data = document.createTextNode(`${item[key]}`)
+                flexData.appendChild(data);
+                element.appendChild(flexData);
+                break;
+            }
+            }
+          totalInvestment.appendChild(element)
+          });
+      </script>           
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Payment Details</div>
+      <div
+        id="section 3"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section3 = {{{json section2}}}
+        for (let index = 0; index < section3.paymentDetails.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section3.paymentDetails.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section3.paymentDetails.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 3").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <div style="margin: 0px 1.5rem">
+    <div style="font-size: 14px; font-weight: bold; margin-bottom: 1rem; margin-top: 2.625rem">
+      Signatures
+    </div>
+    <div style="display: flex;flex-direction: row;">
+      <div style="margin-right: 6rem">
+        <div style="font-size: 8px;line-height: 7px">Principal Holder's Signature</div>
+        <div
+            style="
+              font-size: 12px;
+              font-weight: 600;
+              height: 4rem;
+              width: 15.5rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 1rem;
+              border-bottom: 1px dashed;
+            "
+            id="signatureImg"
+          >
+          </div>
+          <div style="font-size: 10px; margin-bottom: 0.5rem">
+            Name: <span id = "principal" style="font-weight: bold"> </span>
+          </div>
+          <div style="font-size: 10px">Date: <span id = "date1" style="font-weight: bold"></span></div>
+      </div>
+      <script>
+        const section8 = {{{json section}}}
+        document.getElementById("principal").innerHTML=section8.signature.principal
+        document.getElementById("date1").innerHTML=section8.signature.date
+        const imgDiv= document.createElement('DIV')
+        var img = new Image();
+          img.src = section8.signature.path1
+          img.style.maxWidth = "120px"
+          img.style.height = "32px"
+          imgDiv.appendChild(img)
+          document.getElementById('signatureImg').appendChild(imgDiv)
+      </script>
+      <div id = "check">
+        <div style="margin-right: 6rem">
+          <div style="font-size: 8px;line-height: 7px">Joint Holder's Signature</div>
+          <div
+              style="
+                font-size: 12px;
+                font-weight: 600;
+                height: 4rem;
+                width: 15.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+                border-bottom: 1px dashed;
+              "
+              id="signatureImg2"
+            >
+            </div>
+            <div style="font-size: 10px; margin-bottom: 0.5rem">
+              Name: <span id = "principal" style="font-weight: bold"> </span>
+            </div>
+            <div style="font-size: 10px">Date: <span id = "date1" style="font-weight: bold"></span></div>
+        </div></div>
+        <script>
+          const section9 = {{{json section}}}
+          const checkk = document.getElementById("check")
+          if(section9.signature.isJoint == false) {
+            checkk.style.display = "none"
+        }
+          else{
+            checkk.style.display = 'flex';
+            document.getElementById("principal").innerHTML=section9.signature.joint
+          document.getElementById("date1").innerHTML=section9.signature.date
+          const imgDiv= document.createElement('DIV')
+          var img = new Image();
+            img.src = section9.signature.path2
+            img.style.maxWidth = "120px"
+            img.style.height = "32px"
+            imgDiv.appendChild(img)
+            document.getElementById('signatureImg2').appendChild(imgDiv)
+          }
+        </script>
+        </div>
+    </div>
+  </body>
+</html>

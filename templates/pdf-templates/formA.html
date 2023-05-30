@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+        <title>Document</title>
+        <style>
+            body {
+                font-size: 8px;
+                letter-spacing: -0.33px;
+            }
+            .header {
+                padding: 0px;
+                border-spacing: 0;
+                display: flex;
+            }
+            .row {
+                padding: 0px;
+                border-spacing: 0;
+                display: flex;
+                border: 0.5px solid #f4f6f4;
+            }
+            .table_header {
+                background: #333333;
+                color: #ffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 700;
+                font-size: 6px;
+                width: 64px;
+                line-height: 1rem;
+                /* box-shadow: inset -1px 0px 0px #000000; */
+                box-shadow: inset 0.5px 0.5px #000000;
+                letter-spacing: -0.33px;
+                text-align: center;
+            }
+            .table_data {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 400;
+                width: 64px;
+                font-size: 6px;
+                line-height: 1rem;
+                text-transform: capitalize;
+                letter-spacing: -0.33px;
+                box-shadow: inset 0.5px 0.5px #f4f6f4;
+            }
+            .split_cell {
+                background: #333333;
+                color: #ffff;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                font-weight: 700;
+                font-size: 6px;
+                width: 38px;
+                letter-spacing: -0.33px;
+                line-height: 1rem;
+                box-shadow: inset 0.5px 0.5px #000000;
+            }
+            .split_cell_data {
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                font-weight: 400;
+                font-size: 6px;
+                width: 38px;
+                line-height: 1rem;
+                letter-spacing: -0.33px;
+                text-transform: capitalize;
+                /* box-shadow: inset -1px 0px 0px #f4f6f4; */
+                box-shadow: inset 0.5px 0.5px #f4f6f4;
+            }
+        </style>
+    </head>
+    <body style="width: 50.1875rem; margin: 0px; font-family: Nunito Sans">
+        <div style="width: 100%; background-color: #c61230; height: 5px"></div>
+        <div style="margin: 0px 1.5rem">
+            <!-- heading -->
+            <div style="display: flex; margin-top: 1rem">
+                <img
+                    src="https://test-omni-documents.s3-ap-soudiveast-1.amazonaws.com/onboardingReceiptStatic/kenanga-300x150+1.png"
+                    alt="brand logo"
+                    width="61px"
+                    height="24px"
+                />
+                <div style="flex-grow: 1"></div>
+                <div>
+                    <div style="font-size: 1rem; line-height: 1.5rem; font-weight: 700; text-align: right">
+                        FORM A (Cash)
+                    </div>
+                    <div style="font-size: 0.625rem; font-weight: 700; line-height: 1rem; text-align: right">
+                        Daily Collection Confirmation Report
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 2rem; align-items: flex-end">
+                <div style="display: flex; flex-direction: column">
+                    <div style="font-size: 0.875rem; line-height: 1.5rem; font-weight: 700; text-align: left">
+                        UT BOOKING TRANSACTION
+                    </div>
+                    <div style="font-size: 0.625rem; line-height: 1rem; font-weight: 400; text-align: left">
+                        Kenanga Investors Berhad Daily Collection Confirmation Report For Initial Investment /
+                        Additional Investment (Top-up)
+                    </div>
+                </div>
+                <div style="flex-grow: 1"></div>
+                <!-- Branch Name and TimeStamp -->
+                <div>
+                    <div style="font-size: 0.625rem; line-height: 1rem; font-weight: 700; float: right; display: flex">
+                        <div style="font-weight: 400; text-align: right">Branch:&nbsp;</div>
+                        <div id="branch-name"></div>
+                    </div>
+                    <div
+                        id="time"
+                        style="font-size: 0.625rem; font-weight: 700; line-height: 1rem; text-align: right"
+                    ></div>
+                </div>
+                <!-- Script for Branch and TimeStamp -->
+                <script>
+                    var report = {
+                        branchName: 'HQ',
+                        time: '18/05/2020, 11AM',
+                    };
+                    var timeDiv = document.getElementById('time');
+                    var branchDiv = document.getElementById('branch-name');
+                    var time = document.createTextNode(`${report.time}`);
+                    var branchName = document.createTextNode(`${report.branchName}`);
+                    timeDiv.appendChild(time);
+                    branchDiv.appendChild(branchName);
+                </script>
+            </div>
+            <!-- Section E-SUB -->
+            <div style="display: flex; flex-direction: column">
+                <div
+                    style="
+                        font-size: 0.875rem;
+                        font-weight: 700;
+                        margin: 1rem 0px;
+                        line-height: 1.5rem;
+                        display: flex;
+                        flex-direction: row;
+                    "
+                >
+                    E-SUBMISSION
+                </div>
+                <div style="margin-top: 0.5rem">
+                    <div class="header">
+                        <div class="table_header" style="border-left: none; width: 25px">No.</div>
+                        <div class="table_header">Remittance No. (e-Sub No.)</div>
+                        <div class="table_header">OMNI Ref. No.</div>
+                        <div class="table_header">Payment Method / Ref. No.</div>
+                        <div class="table_header" style="width: 98px">Fund Name</div>
+                        <div class="table_header">Gross Amount</div>
+                        <div class="table_header">Investor Name</div>
+                        <div class="table_header">Adviser Code</div>
+                        <div style="display: flex; max-width: 190px; width: 190px; flex-direction: column">
+                            <div
+                                style="
+                                    line-height: 1rem;
+                                    background: #333333;
+                                    color: #ffff;
+                                    justify-content: center;
+                                    display: flex;
+                                    align-items: center;
+                                    font-weight: 700;
+                                    font-size: 6px;
+                                    padding: 0px 8px;
+                                    letter-spacing: -0.33px;
+                                    border-left: 0.5px solid #000000;
+                                    box-shadow: inset 0px -1px 0px #000000;
+                                "
+                            >
+                                FORM (S)
+                            </div>
+                            <div style="display: flex; width: 190px">
+                                <div class="split_cell">AOF</div>
+                                <div class="split_cell" style="line-height: 7px">3rd Party AOF</div>
+                                <div class="split_cell">9N</div>
+                                <div class="split_cell">DDA</div>
+                                <div class="split_cell">IC</div>
+                            </div>
+                        </div>
+                        <div class="table_header">Remarks</div>
+                    </div>
+                </div>
+                <!-- Section E-Submission Script -->
+                <div id = 'e-sub-table' style="width: 100%; max-width: 755px;"/>
+                    <script>
+                        var report = {
+                            branchName: 'HQ',
+                            time: '18/05/2020, 11AM',
+                            submissions: [
+                                {
+                                    no: '1',
+                                    remittanceNo: '',
+                                    omniRefNo: 'OMNI-TR0110',
+                                    paymentMethodRef: 'TT / TT00012345',
+                                    fundName: 'Kenanga Global Fund',
+                                    grossAmount: 'USD 1,000.00',
+                                    investorName: 'Alan Poe',
+                                    adviserCode: '015xxxxxx',
+                                    formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                    remarks: '',
+                                },
+                                {
+                                    no: '2',
+                                    remittanceNo: '',
+                                    omniRefNo: 'OMNI-TR0110',
+                                    paymentMethodRef: 'TT / TT00012345',
+                                    fundName: 'Kenanga Equity Fund',
+                                    grossAmount: 'MYR 3,000.00',
+                                    investorName: 'Alan Poe',
+                                    adviserCode: '015xxxxxx',
+                                    formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                    remarks: '',
+                                },
+                                {
+                                    no: '3',
+                                    remittanceNo: '',
+                                    omniRefNo: 'OMNI-TR0111',
+                                    paymentMethodRef: 'TT / TT00012345',
+                                    fundName: 'Kenanga Equity Fund',
+                                    grossAmount: 'MYR 2,000.00',
+                                    investorName: 'Alan Poe',
+                                    adviserCode: '015xxxxxx',
+                                    formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                    remarks: '',
+                                },
+                                {
+                                    no: '4',
+                                    remittanceNo: '',
+                                    omniRefNo: 'OMNI-TR0112',
+                                    paymentMethodRef: 'TT / TT00012345',
+                                    fundName: 'Kenanga Equity Fund',
+                                    grossAmount: 'MYR 1,000.00',
+                                    investorName: 'Helen',
+                                    adviserCode: 'P15xxxxxx',
+                                    formS: { aof: 'yes', thirdPartyAOF: 'yes', '9N': '', dda: '', ic: 'yes' },
+                                    remarks: '',
+                                },
+                            ],
+                        };
+                        var table = document.getElementById('e-sub-table');
+                        report.submissions.map((item, index) => {
+                            var row = document.createElement('div');
+                            row.className = 'row';
+                            
+                            const tempDiv = document.createElement('div')
+                            tempDiv.style= 'display:flex;width:100%';
+                            
+                            for (let [key] of Object.entries(item)){
+                                
+                                var tableData = document.createElement('div');
+                                tableData.className = 'table_data';
+                                switch(key){
+                                    case 'no': var data = document.createTextNode(`${item[key]}`)
+                                               tableData.style="width:25px;";
+                                               tableData.appendChild(data);
+                                               tempDiv.appendChild(tableData);
+                                               row.appendChild(tempDiv)
+                                               break;
+                                    case 'fundName':var data = document.createTextNode(`${item[key]}`)
+                                               tableData.style="width:98px;";
+                                               tableData.appendChild(data);
+                                               tempDiv.appendChild(tableData);
+                                               row.appendChild(tempDiv)
+                                               break;
+                                    case 'formS':var formDiv=document.createElement('div');
+                                                formDiv.style="display: flex; width: 190px";                                                                                         
+                                                for(let [key,value] of Object.entries(item['formS'])){
+                                                    var splitCellData=document.createElement('div');
+                                                    splitCellData.className="split_cell_data"  
+                                                    var data = document.createTextNode(`${value}`)
+                                                    splitCellData.appendChild(data);
+                                                    formDiv.appendChild(splitCellData)}
+                                                tempDiv.appendChild(formDiv);
+                                                row.appendChild(tempDiv);
+                                                break;
+                                  
+                                    default: var data = document.createTextNode(`${item[key]}`)
+                                        tableData.appendChild(data);
+                                        tempDiv.appendChild(tableData)
+                                        row.appendChild(tempDiv)
+                                        break;
+                                }
+                                
+                            }
+                            table.appendChild(row)                                
+                        });
+                    </script>           
+           
+            <!-- Section Follow Up Documents -->
+            <div style="display: flex; flex-direction: column">
+                <div
+                    style="
+                        font-size: 0.875rem;
+                        font-weight: 700;
+                        margin: 1rem 0px;
+                        line-height: 1.5rem;
+                        display: flex;
+                        flex-direction: row;
+                    "
+                >
+                    FOLLOW UP DOCUMENTS (2nd Level)
+                </div>
+                <div style="margin-top: 0.5rem">
+                    <div class="header">
+                        <div class="table_header" style="border-left: none; width: 25px">No.</div>
+                        <div class="table_header">Transaction Date</div>
+                        <div class="table_header">OMNI Ref. No.</div>
+                        <div class="table_header">Payment Method / Ref. No.</div>
+                        <div class="table_header" style="width: 98px">Fund Name</div>
+                        <div class="table_header">Gross Amount</div>
+                        <div class="table_header">Investor Name</div>
+                        <div class="table_header">Adviser Code</div>
+                        <div style="display: flex; max-width: 190px; width: 190px; flex-direction: column">
+                            <div
+                                style="
+                                    line-height: 1rem;
+                                    background: #333333;
+                                    color: #ffff;
+                                    justify-content: center;
+                                    display: flex;
+                                    align-items: center;
+                                    font-weight: 700;
+                                    font-size: 6px;
+                                    padding: 0px 8px;
+                                    letter-spacing: -0.33px;
+                                    border-left: 0.5px solid #000000;
+                                    box-shadow: inset 0px -1px 0px #000000;
+                                "
+                            >
+                                FORM (S)
+                            </div>
+                            <div style="display: flex; width: 190px">
+                                <div class="split_cell">AOF</div>
+                                <div class="split_cell" style="line-height: 7px">3rd Party AOF</div>
+                                <div class="split_cell">9N</div>
+                                <div class="split_cell">DDA</div>
+                                <div class="split_cell">IC</div>
+                            </div>
+                        </div>
+                        <div class="table_header">Remarks</div>
+                    </div>
+                </div>
+                   <!-- Section Follow Up Documents Script -->
+                <div id = 'follow-up-table' style="width: 100%; max-width: 755px;"/>
+                <script>
+                    var report = {
+                        branchName: 'HQ',
+                        time: '18/05/2020, 11AM',
+                        submissions: [
+                            {
+                                no: '1',
+                                remittanceNo: '',
+                                omniRefNo: 'OMNI-TR0110',
+                                paymentMethodRef: 'TT / TT00012345',
+                                fundName: 'Kenanga Global Fund',
+                                grossAmount: 'USD 1,000.00',
+                                investorName: 'Alan Poe',
+                                adviserCode: '015xxxxxx',
+                                formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                remarks: '',
+                            },
+                            {
+                                no: '2',
+                                remittanceNo: '',
+                                omniRefNo: 'OMNI-TR0110',
+                                paymentMethodRef: 'TT / TT00012345',
+                                fundName: 'Kenanga Equity Fund',
+                                grossAmount: 'MYR 3,000.00',
+                                investorName: 'Alan Poe',
+                                adviserCode: '015xxxxxx',
+                                formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                remarks: '',
+                            },
+                            {
+                                no: '3',
+                                remittanceNo: '',
+                                omniRefNo: 'OMNI-TR0111',
+                                paymentMethodRef: 'TT / TT00012345',
+                                fundName: 'Kenanga Equity Fund',
+                                grossAmount: 'MYR 2,000.00',
+                                investorName: 'Alan Poe',
+                                adviserCode: '015xxxxxx',
+                                formS: { aof: 'yes', thirdPartyAOF: '', '9N': '', dda: '', ic: 'yes' },
+                                remarks: '',
+                            },
+                            {
+                                no: '4',
+                                remittanceNo: '',
+                                omniRefNo: 'OMNI-TR0112',
+                                paymentMethodRef: 'TT / TT00012345',
+                                fundName: 'Kenanga Equity Fund',
+                                grossAmount: 'MYR 1,000.00',
+                                investorName: 'Helen',
+                                adviserCode: 'P15xxxxxx',
+                                formS: { aof: 'yes', thirdPartyAOF: 'yes', '9N': '', dda: '', ic: 'yes' },
+                                remarks: '',
+                            },
+                        ],
+                        followUpDocuments:[
+                        {
+                                no: '1',
+                                transactionDate: '10/05/2020',
+                                omniRefNo: 'OMNI-TR0045',
+                                paymentMethodRef: 'TT / TT00004536',
+                                fundName: '3rd Party PRS Fund',
+                                grossAmount: 'MYR 5,000.00',
+                                investorName: 'Alan Poe',
+                                adviserCode: '015xxxxxx',
+                                formS: { aof: '', thirdPartyAOF: 'yes', '9N': '', dda: '', ic: '' },
+                                remarks: '',
+                            },
+                        {
+                                no: '2',
+                                transactionDate: '10/05/2020',
+                                omniRefNo: 'OMNI-TR0078',
+                                paymentMethodRef: 'EPF',
+                                fundName: 'Kenanga Fixed Income Fund',
+                                grossAmount: 'MYR 3,000.00',
+                                investorName: 'Aaa Bbbb Cccc',
+                                adviserCode: '015xxxxxx',
+                                formS: { aof: '', thirdPartyAOF: '', '9N': 'yes', dda: '', ic: '' },
+                                remarks: 'EPF',
+                            },
+                        ]
+                    };
+                    var table = document.getElementById('follow-up-table');
+                    report.followUpDocuments.map((item, index) => {
+                        var row = document.createElement('div');
+                        row.className = 'row';
+                        
+                        const tempDiv = document.createElement('div')
+                        tempDiv.style= 'display:flex;width:100%';
+                        
+                        for (let [key] of Object.entries(item)){
+                            
+                            var tableData = document.createElement('div');
+                            tableData.className = 'table_data';
+                            switch(key){
+                                case 'no': var data = document.createTextNode(`${item[key]}`)
+                                           tableData.style="width:25px;";
+                                           tableData.appendChild(data);
+                                           tempDiv.appendChild(tableData);
+                                           row.appendChild(tempDiv)
+                                           break;
+                                case 'fundName':var data = document.createTextNode(`${item[key]}`)
+                                           tableData.style="width:98px;";
+                                           tableData.appendChild(data);
+                                           tempDiv.appendChild(tableData);
+                                           row.appendChild(tempDiv)
+                                           break;
+                                case 'formS':var formDiv=document.createElement('div');
+                                            formDiv.style="display: flex; width: 190px";                                                                                         
+                                            for(let [key,value] of Object.entries(item['formS'])){
+                                                var splitCellData=document.createElement('div');
+                                                splitCellData.className="split_cell_data"  
+                                                var data = document.createTextNode(`${value}`)
+                                                splitCellData.appendChild(data);
+                                                formDiv.appendChild(splitCellData)}
+                                            tempDiv.appendChild(formDiv);
+                                            row.appendChild(tempDiv);
+                                            break;
+                              
+                                default: var data = document.createTextNode(`${item[key]}`)
+                                    tableData.appendChild(data);
+                                    tempDiv.appendChild(tableData)
+                                    row.appendChild(tempDiv)
+                                    break;
+                            }
+                            
+                        }
+                        table.appendChild(row)                                
+                    });
+                </script>   
+            </div>
+
+            <div style="display: flex; margin-top: 64px">
+                <!-- Prepared By Section -->
+                <div
+                    style="
+                        display: flex;
+                        flex-direction: column;
+                        border-top: 0.5px solid;
+                        text-align: left;
+                        line-height: 16px;
+                        font-weight: 400;
+                        width: 157px;
+                    "
+                >
+                    <div>Prepared By:</div>
+                    <div style="display: flex">
+                        Name:&nbsp;
+                        <div style="font-weight: 700" id="prepared-by-name"></div>
+                    </div>
+                    <div style="display: flex">
+                        Department:&nbsp;
+                        <div style="font-weight: 700"id="prepared-by-department"></div>
+                    </div>
+                    <div style="display: flex">
+                        Branch:&nbsp;
+                        <div style="font-weight: 700"id="prepared-by-branch"></div>
+                    </div>
+                </div>
+                <!-- Script for Prepared by section -->
+                <script>
+                    var report = {
+                        branchName: 'HQ',
+                        time: '18/05/2020, 11AM',
+                        preparedBy:{
+                            name:'Christine R.',
+                            department:'CE (Branch) Officer',
+                            branch:'Penang'
+                        }
+                    };
+                    var preparedByDiv = document.getElementById('prepared-by-name');
+                    var departmentDiv = document.getElementById('prepared-by-department');
+                    var branchDiv = document.getElementById('prepared-by-branch');
+                    var preparedBy = document.createTextNode(`${report.preparedBy.name}`);
+                    var department = document.createTextNode(`${report.preparedBy.department}`);
+                    var branch = document.createTextNode(`${report.preparedBy.branch}`);                    
+                    preparedByDiv.appendChild(preparedBy);
+                    branchDiv.appendChild(branch);
+                    departmentDiv.appendChild(department);
+                </script>
+                <div style="flex-grow: 1"></div>
+                <div style="display: flex; flex-direction: column">
+                    <div
+                        style="
+                            display: flex;
+                            flex-direction: column;
+                            border-top: 0.5px solid;
+                            text-align: left;
+                            line-height: 16px;
+                            font-weight: 400;
+                            width: 157px;
+                        "
+                    >
+                        Received By (Operations):
+                    </div>
+                </div>
+                <div style="flex-grow: 1"></div>
+                <div style="display: flex; flex-direction: column">
+                    <div
+                        style="
+                            display: flex;
+                            flex-direction: column;
+                            border-top: 0.5px solid;
+                            text-align: left;
+                            line-height: 16px;
+                            font-weight: 400;
+                            width: 157px;
+                        "
+                    >
+                        Confirmed Data Entry By (Operations):
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div style="float: right; margin-top: 2rem"id="pagination"></div>
+        <script>
+            var report={
+                branchName: 'HQ',
+                        time: '18/05/2020, 11AM',
+                        preparedBy:{
+                            name:'Christine R.',
+                            department:'CE (Branch) Officer',
+                            branch:'Penang'
+                        },
+                        page:'1',
+                        pages:'1'
+            }
+                    var paginationDiv = document.getElementById('pagination');
+                    var pages = document.createTextNode(`Page ${report.page} of ${report.pages}`);                  
+                    paginationDiv.appendChild(pages);
+        </script>
+    </body>
+</html>

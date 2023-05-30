@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        html {
+          size: 24cm;
+          margin: 2mm 17mm 5mm 17mm;
+        }
+        .font {
+          font-family: Arial, sans-serif;
+          text-align: justify;
+        }
+        .uppercase {
+          text-transform: uppercase;
+        }
+        .bold {
+          font-weight: 700;
+        }
+        .pb8 {
+          padding-bottom: 8px;
+        }
+        .pt18 {
+          padding-top: 18px;
+        }
+        .pb18 {
+          padding-bottom: 18px;
+        }
+        .mt8 {
+          margin-top: 8px;
+        }
+        .mb8 {
+          margin-bottom: 8px;
+        }
+        .f9 {
+          font-size: 9px;
+          line-height: 10px;
+        }
+        .f13 {
+          font-size: 13px;
+          line-height: 20px;
+        }
+        .f14 {
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .f15 {
+          font-size: 15px;
+          line-height: 20px;
+        }
+        .f14 {
+            font-size: 14px;
+            line-height: 10px;
+        }
+        .f16 {
+          font-size: 16px;
+          line-height: 20px;
+        }
+        .lh12 {
+          line-height: 12px;
+        }
+        .column1 {
+          font-size: 14px;
+          width: 200px;
+          vertical-align: top;
+        }
+        .column2 {
+          font-size: 14px;
+          vertical-align: top;
+          width: 200px;
+        }
+        .column3 {
+          font-size: 14px;
+          width: 200px;
+          vertical-align: top;
+        }
+        .colon {
+          font-size: 14px;
+          width: 10px;
+          vertical-align: top;
+        }
+        td {
+          padding: 4px 0 4px 0;
+        }
+        .tajustify {
+          text-align: justify;
+        }
+        hr {
+          background-color: black;
+        }
+    </style>
+</head>
+<html>
+    <body>
+    <table>
+      <table>
+      <tr>
+        <td width="1000px" class="f15">PPA Online Application Acceptance of Terms and Conditions</td>
+        <td rowspan="2" style="vertical-align: top; text-align: right">
+            <img height="64em" style="margin-left: 150px" src="https://omni-icons.s3-ap-southeast-1.amazonaws.com/PPA.png" />
+        </td>
+      </tr>
+      <tr width="400px">
+        <td class="f9 lh12 tajustify" style="word-spacing:2px">
+          <i>The Private Pension Administrator is approved as a PRS administrator under section 139C of<br>
+            the Capital Markets and Services Act 2007. You are advised that there are fees and charges<br>
+            payable to the PPA. For more information, please refer to <u>www.ppa.my</u>
+          </i>
+        </td>
+      </tr>
+      </table>
+      <table width="680px" style="margin-top: -20px;">
+      <tr>
+        <td class="bold column1">PPA No</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if ppaNo}}{{ppaNo}}{{/if}}</td>
+        <td class="bold column3">Salutation</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.salutation}}{{personalDetails.salutation}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Name</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if clientName}}{{clientName}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Gender</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.gender}}{{personalDetails.gender}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Identification ID</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if clientIdNum}}{{clientIdNum}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Ethnicity</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.race}}{{personalDetails.race}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Identification Type</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if idType}}{{idType}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Employment Status</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if employmentDetails.employmentStatus}}{{employmentDetails.employmentStatus}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Country of Issuance</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if countryOfIssuance}}{{countryOfIssuance}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Occupation</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if employmentDetails}}{{employmentDetails.occupation}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Nationality</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.nationality}}{{personalDetails.nationality}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Marital Status</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.maritalStatus}}{{personalDetails.maritalStatus}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Monthly Household Income</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if personalDetails.monthlyHouseholdIncome}}{{personalDetails.monthlyHouseholdIncome}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Address</td>
+        <td class="bold colon">:</td>
+        <td colspan=3 class="column2" style="word-wrap: break-word">{{#if addressInformation.address}}{{addressInformation.address}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Postcode</td>
+        <td class="bold colon">:</td>
+        <td class="column2 ">{{#if addressInformation.postCode}}{{addressInformation.postCode}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Tel. No. (Mobile)</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if contactNumber.mobileNumber}}{{contactNumber.mobileNumber.code}} {{contactNumber.mobileNumber.value}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Town/City</td>
+        <td class="bold colon">:</td>
+        <td class="column2 ">{{#if addressInformation.city}}{{addressInformation.city}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Tel. No. (Office)</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if contactNumber.officeNumber}}{{contactNumber.officeNumber.code}} {{contactNumber.officeNumber.value}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">State</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if addressInformation.state}}{{addressInformation.state}}{{else}}-{{/if}}</td>
+        <td class="bold column3">Tel. No. (Home)</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if contactNumber.homeNumber}}{{contactNumber.homeNumber.code}} {{contactNumber.homeNumber.value}}{{else}}-{{/if}}</td>
+      </tr>
+      
+      <tr>
+        <td class="bold column1">Country</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if addressInformation.country}}{{addressInformation.country}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      <tr>
+        <td class="bold column1">Email</td>
+        <td class="bold colon">:</td>
+        <td class="column2">{{#if emailAddress}}{{emailAddress}}{{else}}-{{/if}}</td>
+      </tr>
+​
+      </table>
+      <div class="f13 pb18 mt8 w750 tajustify">
+        Kenanga Investors Berhad hereby confirms that the above-mentioned application is an existing unit holder, or investor, or customer of Kenanga Investors Berhad, where the necessary checks and verification procedures have been conducted on the applicant and which Kenanga Investors Berhad confirms to be true identity of the applicant.
+      </div>
+
+      <div style="width:100%; border-top:1px solid black;"></div>
+
+      <div class="f15 pt18 mb8 uppercase bold w750 tajustify">
+        Acceptance of Terms and Conditions For PPA Account Opening and Subscription via E-Application
+      </div>
+
+      <div class="f13 mb8 w750 tajustify">
+        Thank you for opening an account with PPA. By agreeing to the terms and conditions for account opening, you are deemed to have accepted the terms and conditions which constitutes the entire agreement between you and, Kenanga Investors Berhad and the PPA.
+      </div>
+      <div class="f13 mb8 w750 tajustify">
+        You have also agreed that your personal information (including as printed above), will be provided by Kenanga Investors Berhad to PPA in the course of completing any transactions, dealings or in connection with services that the PPA may provide to you and that the information provided by Kenanga Investors Berhad will be automatically transmitted to the PPA.
+      </div>
+      <div class="f13 mb8 w750 tajustify">
+        You have also agreed to settle any related fees and charges that will be incurred directly or indirectly when investing in the PRS fund(s).
+      </div>
+      <div class="f13 mb8 w750 tajustify">
+        This is a computer generated acceptance and applicant’s signature is not required.
+      </div>
+      <div class="f13 mb8 w750">
+        <i>Please print a copy of this acceptance for your records and future reference.</i>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+Dear Compliance,
+
+Your {{eventType}} request {{#if name}}for {{name}} {{/if}}has been {{action}}.
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

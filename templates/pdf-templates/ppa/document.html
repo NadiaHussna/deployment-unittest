@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+          html {
+            size: 24cm;
+            margin: 2mm 17mm 15mm 17mm;
+          }
+          .font {
+            font-family: Arial, sans-serif;
+            text-align: justify;
+          }
+          .bold {
+            font-weight: 700;
+          }
+          .f15 {
+            font-size: 14px;
+          }
+          .lh12 {
+            line-height: 12px;
+          }
+          .lh14 {
+            line-height: 14px;
+          }
+          .mb24 {
+            margin-bottom: 24px
+          }
+        </style>
+    </head>
+    <body>
+      <div class="bold f15 mb24 lh14">DOCUMENTS</div>
+      {{#each documents}}
+      <div style="width: 15.5rem;">
+        <div class="f15 lh12" style="margin: 30px 30px 30px 0px;">{{title}}</div>
+        <div style="margin-left: 104px; position: relative">
+          <img height="260px" src="{{base64}}" alt="{{alt}}"/>
+          <div class="bold" style="letter-spacing: 4px; font-size: 30px; width: 600px; position: absolute; transform: rotate(-30deg); top: 40px; color: #33333388">
+            {{overlay}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </body>
+</html>

@@ -1,0 +1,15 @@
+Compliance,
+EDD case has been concluded for the client:
+
+Full Name as per NRIC: {{ clientName }}
+NRIC: {{ clientIdNum }}
+Account Type: {{ accountType }}
+Assigned Adviser: {{ agentName }}
+Assigned Adviser ID: {{ agentCode }}
+Reason for EDD: {{ eddReason }}
+
+The EDD report is attached.
+
+Thank you.
+AMLA Officer
+Kenanga Investors Berhad

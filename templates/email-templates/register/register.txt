@@ -1,0 +1,3 @@
+Dear {{ name }},
+Here is your password to access the Back Office dashboard.
+{{password}}

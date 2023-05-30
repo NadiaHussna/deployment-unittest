@@ -1,0 +1,15 @@
+Compliance,
+EDD case has been rejected for the client:
+
+Full Name as per NRIC: {{ clientName }}
+NRIC: {{ clientIdNum }}
+Account Type: {{ accountType }}
+Assigned Adviser: {{ agentName }}
+Assigned Adviser ID: {{ agentCode }}
+Reason for EDD: {{ eddReason }}
+
+Please complete and resubmit by {{ targetDate }}.
+
+Thank you.
+AMLA Officer
+Kenanga Investors Berhad

@@ -1,0 +1,19 @@
+Dear {{agentName}},
+
+Your Order Number {{orderNo}} for {{clientNames}} was
+{{action}}{{#ifEquals actionTitle 'Reject'}} and we are unable to proceed with this submission{{/ifEquals}}.
+
+{{#if reason}}
+{{#each reason}}
+  {{#each this.content}}
+    ~ {{this}}
+  {{/each}}
+{{/each}}
+{{/if}}
+
+{{#if targetDate}}Please resubmit the relevant documents on OMNI before {{targetDate}}.{{/if}}
+{{#ifEquals actionTitle 'Reject'}}Please continue on a new application.{{/ifEquals}}
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

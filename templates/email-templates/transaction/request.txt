@@ -1,0 +1,7 @@
+Dear Compliance, 
+
+Request approval for {{action}} was made for Transaction Number {{ orderNo }}{{ transactionRef }}.
+
+
+Kenanga Investors Berhad 199501024358 (353563-P)
+All rights reserved

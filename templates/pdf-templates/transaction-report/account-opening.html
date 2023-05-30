@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body style="width: 50.1875rem; margin: 0px; font-family: Nunito Sans">
+    <div style="margin: 0px 1.5rem">
+      <!-- welcome -->
+      <div  style="font-size: .8rem; font-weight: bold; margin: 1rem 0px; display: flex;flex-direction: row;">
+        <div>Transaction No: &nbsp;</div>
+        <div id="client"></div>
+      </div>
+      <div  style="font-size: 7px; font-weight: normal; margin: 1rem 0px; display: flex;flex-direction: row;">
+        <div id="note"></div>
+      </div>
+      <!-- Transaction Summary -->
+      <div style="font-size: 14px; font-weight: bold; margin-bottom: 1rem">Account Opening </div>
+      <div
+        id="section 1"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 1
+        const section1 = {{{json section}}}
+        document.getElementById("client").innerHTML=section1.transactionName
+        document.getElementById("note").innerHTML=section1.accountOpeningCheck
+        for (let index = 0; index < section1.accountOpening.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+          const subAnw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section1.accountOpening.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section1.accountOpening.answer[index]
+
+          subAnw.style.fontSize = "10px"
+          subAnw.style.fontWeight = "500"
+          subAnw.innerHTML = section1.accountOpening.subAnswer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          cont.appendChild(subAnw)
+          document.getElementById("section 1").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="border-left: 2px solid#c61230;padding-left: 1.5rem;font-size:1.5rem ;font-weight: bold;">Principal Account Holder</div>
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Personal Details</div>
+      <div
+        id="section 2"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section2 = {{{json section2}}}
+        for (let index = 0; index < section2.personalDetails.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section2.personalDetails.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section2.personalDetails.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 2").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <!-- Personal Details -->
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Address Information</div>
+      <div
+        id="section 3"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section3 = {{{json section3}}}
+        for (let index = 0; index < section3.permanentAddress.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section3.permanentAddress.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section3.permanentAddress.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 3").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; border-bottom: 1px dashed #eaebee;"></div>
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold"></div>
+      <div
+        id="section 5"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section5 = {{{json section5}}}
+        for (let index = 0; index < section5.mailingAddress.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section5.mailingAddress.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section5.mailingAddress.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 5").appendChild(cont)
+        }
+      </script>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: #eaebee"></div>
+    <div style="margin: 0px 1.5rem">
+      <div style="margin: 1rem 0px; font-size: 16px; font-weight: bold">Contact Details</div>
+      <div
+        id="section 6"
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 2rem;
+          row-gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <script>
+        // section 2
+        const section6 = {{{json section6}}}
+        for (let index = 0; index < section6.contactDetails.question.length; index++) {
+          const cont = document.createElement("DIV")
+          const ques = document.createElement("DIV")
+          const anw = document.createElement("DIV")
+
+          cont.style.width = "10rem"
+
+          ques.style.fontSize = "10px"
+          ques.style.fontWeight = "bold"
+          ques.style.color = "#333333"
+          ques.innerHTML = section6.contactDetails.question[index]
+
+          anw.style.fontSize = "12px"
+          anw.style.fontWeight = "bold"
+          anw.innerHTML = section6.contactDetails.answer[index]
+
+          cont.appendChild(ques)
+          cont.appendChild(anw)
+          document.getElementById("section 6").appendChild(cont)
+        }
+      </script>
+    </div>
+  </body>
+</html>
